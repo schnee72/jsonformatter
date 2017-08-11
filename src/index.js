@@ -9,24 +9,33 @@ const copy = global.document.getElementById('copy');
 const message = global.document.getElementById('message');
 
 format.onclick = () => {
-  message.innerHTML = '';
+  clear();
   let val = textArea.value;
 
+  if (val === '') {
+    return;
+  }
+
   try {
-    let obj = JSON.parse(val);
-    textArea.value = JSON.stringify(obj, undefined, 2);
+    textArea.value = JSON.stringify(JSON.parse(val), undefined, 2);
   } catch (e) {
-    error(e);
+    error(`Not JSON - ${e}`);
   }
 }
 
 copy.onclick = () => {
-  message.innerHTML = '';
+  clear();
+
+  if (textArea.value === '') {
+    return;
+  }
+
   textArea.select();
 
   try {
-    message.className = 'yellow';
     message.innerHTML = global.document.execCommand('copy') ? 'Copied!' : 'Nothing copied.';
+    message.className = 'yellow';
+    setTimeout(clear, 3500);
   } catch (e) {
     error(e);
   }
@@ -35,4 +44,7 @@ copy.onclick = () => {
 const error = (e) => {
   message.className = 'red';
   message.innerHTML = e;
+  setTimeout(clear, 5000);
 }
+
+const clear = () => message.innerHTML = '';
