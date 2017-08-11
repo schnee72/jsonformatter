@@ -10,6 +10,7 @@ const message = global.document.getElementById('message');
 
 format.onclick = () => {
   clear();
+  
   let val = textArea.value;
 
   if (val === '') {
@@ -17,7 +18,7 @@ format.onclick = () => {
   }
 
   try {
-    textArea.value = JSON.stringify(JSON.parse(val), undefined, 2);
+    val = JSON.stringify(JSON.parse(val), undefined, 2);
   } catch (e) {
     error(`Not JSON - ${e}`);
   }
