@@ -39,7 +39,7 @@ export default {
       inject: true
     }),
     // Minify JS
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
     new webpack.LoaderOptionsPlugin({
       debug: false,
       noInfo: true,
