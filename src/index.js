@@ -10,7 +10,7 @@ const message = global.document.getElementById('message');
 
 format.onclick = () => {
   clear();
-  
+
   let val = textArea.value;
 
   if (val === '') {
