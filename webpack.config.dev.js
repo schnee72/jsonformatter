@@ -16,7 +16,6 @@ export default {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // Create HTML file that includes reference to bundled JS
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       favicon: 'src/favicon.ico',
@@ -29,10 +28,10 @@ export default {
   ],
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-      {test: /\.css$/, loaders: ['style-loader','css-loader']},
-      {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'}
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+      { test: /\.ico$/, loader: 'file-loader?name=[name].[ext]' },
+      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+      { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]' }
     ]
   }
 }
