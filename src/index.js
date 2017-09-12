@@ -26,7 +26,7 @@ copy.onclick = () => {
   if (textArea.value === '') {
     return;
   }
-  textArea.setSelectionRange(0, textArea.value.length);
+  textArea.select();
   try {
     message.innerHTML = global.document.execCommand('copy') ? 'Copied!' : 'Nothing copied.';
     message.className = 'yellow';
