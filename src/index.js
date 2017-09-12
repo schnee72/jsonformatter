@@ -20,7 +20,7 @@ format.onclick = () => {
   try {
     val = JSON.stringify(JSON.parse(val), undefined, 2);
   } catch (e) {
-    error(`Not JSON - ${e}`);
+    error(`${e}`);
   }
 }
 
