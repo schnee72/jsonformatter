@@ -10,7 +10,7 @@ const message = global.document.getElementById('message');
 
 format.onclick = () => {
   clear();
-  
+
   let val = textArea.value;
 
   if (val === '') {
@@ -31,7 +31,7 @@ copy.onclick = () => {
     return;
   }
 
-  textArea.select();
+  textArea.setSelectionRange(0, textArea.value.length);
 
   try {
     message.innerHTML = global.document.execCommand('copy') ? 'Copied!' : 'Nothing copied.';
