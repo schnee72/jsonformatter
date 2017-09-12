@@ -10,13 +10,10 @@ const message = global.document.getElementById('message');
 
 format.onclick = () => {
   clear();
-
   let val = textArea.value;
-
   if (val === '') {
     return;
   }
-
   try {
     val = JSON.stringify(JSON.parse(val), undefined, 2);
   } catch (e) {
@@ -26,13 +23,10 @@ format.onclick = () => {
 
 copy.onclick = () => {
   clear();
-
   if (textArea.value === '') {
     return;
   }
-
   textArea.setSelectionRange(0, textArea.value.length);
-
   try {
     message.innerHTML = global.document.execCommand('copy') ? 'Copied!' : 'Nothing copied.';
     message.className = 'yellow';
